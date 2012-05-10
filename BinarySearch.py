@@ -46,24 +46,27 @@ def queue_lisays(bi_jono, mittausvali, rands):
 # Testaa lisays-jono-operaation.
 def queue_lisays_testi():
 	
-	g = Gnuplot.Gnuplot()
-	bi_jono = []
+    g = Gnuplot.Gnuplot()
+    bi_jono = []
 	
-	rands = list(numpy.random.randint(lmax_num, size = ltesti_koko))
+    rands = list(numpy.random.randint(lmax_num, size = ltesti_koko))
 	
-	tulos_lista = []
-	g('set title "Satunnaisten alkioiden lisays binaarijono kirjastolla" font "%s"' % font)
-	g('set xlabel "Lisattyja alkioita" font "%s"' % font)
-	g('set ylabel "Kulunut aika [s]" font "%s"' % font)
-	g('set style data linespoints')
+    tulos_lista = []
+    g('set title "Satunnaisten alkioiden lisays binaarijono kirjastolla" font "%s"' % font)
+    g('set xlabel "Lisattyja alkioita" font "%s"' % font)
+    g('set ylabel "Kulunut aika [s]" font "%s"' % font)
+    g('set style data linespoints')
 
-	tulos_lista = queue_lisays(bi_jono = bi_jono, \
-		mittausvali = ltesti_koko/lmittauspisteita, rands = rands)
-	
-	g.plot(tulos_lista)
-	input = raw_input('Paina y tallentaaksesi...\n')
-	if input == 'y':
-		g.hardcopy(badd_fname, color=1)
+    tulos_lista = queue_lisays(bi_jono = bi_jono, \
+    mittausvali = ltesti_koko/5, rands = rands)
+
+    for lisattyja, aika in tulos_lista:
+        print "%d %.4f" % (lisattyja, aika)
+    
+    g.plot(tulos_lista)
+    input = raw_input('Paina y tallentaaksesi...\n')
+    if input == 'y':
+        g.hardcopy(badd_fname, color=1)
 
 # Etsii annetun avaimen binaarijonosta
 # Palauttaa etsimiseen kuluneen ajan

@@ -19,31 +19,26 @@ if lheapq_testi == True:
 else:
 	pqadd_fname = "pics/pr_queue_add.ps"
 
-merge_testi = False
-merge_toinen_lista_vakio_kokoinen = False
+merge_testi = True
+merge_toinen_lista_vakio_kokoinen = True
 mmax_koko = 10000000 # Jonon koko. Nollalla jonolle ei aseteta maksimikokoa
 mtesti_koko = 10000000 # Kuinka monella alkiolla testataan
 mmin_num = 0 # Minimiarvo alkiolle
 mmax_num = 100000 # Maksimiarvo alkiolle
-mheapq_testi = True # Testaa heapq kirjastoa, muuten Queue-kirjaston prority queue
 mmittauspisteita = 10
-if mheapq_testi == True and merge_toinen_lista_vakio_kokoinen == True:
+if merge_toinen_lista_vakio_kokoinen == True:
 	pqmerge_fname = "pics/pr_queue_merge_diff_size.ps"
-elif mheapq_testi == True and merge_toinen_lista_vakio_kokoinen == False:
+else:
 	pqmerge_fname = "pics/pr_queue_merge_same_size.ps"
-elif mheapq_testi == False and merge_toinen_lista_vakio_kokoinen == True:
-	pqmerge_fname = "pics/pr_heapq_merge_diff_size.ps"
-elif mheapq_testi == False and merge_toinen_lista_vakio_kokoinen == False:
-	pqmerge_fname = "pics/pr_heapq_merge_same_size.ps"
 
-poisto_testi = True
+poisto_testi = False
 pmax_koko = 1000000 # Jonon koko. Nollalla jonolle ei aseteta maksimikokoa
 ptesti_koko = 1000000 # Kuinka monella alkiolla testataan
 pmin_num = 0 # Minimiarvo alkiolle
 pmax_num = 100000 # Maksimiarvo alkiolle
-pheapq_testi = False # Testaa heapq kirjastoa, muuten Queue-kirjaston prority queue
+pheapq_testi = True # Testaa heapq kirjastoa, muuten Queue-kirjaston prority queue
 pmittauspisteita = 10
-if lheapq_testi == True:
+if pheapq_testi == True:
 	pqdel_fname = "pics/pr_heapq_del.ps"
 else:
 	pqdel_fname = "pics/pr_queue_del.ps"
